@@ -485,6 +485,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!4 &1662671024 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4777850487040548186, guid: 4a213fd8d6449d74495d19b9438c51c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 4777850487592502762}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &627837203998483841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -633,8 +639,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4777850487040548187, guid: 4a213fd8d6449d74495d19b9438c51c3,
         type: 3}
+      propertyPath: _pool.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4777850487040548187, guid: 4a213fd8d6449d74495d19b9438c51c3,
+        type: 3}
       propertyPath: _minDelay
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 4777850487040548187, guid: 4a213fd8d6449d74495d19b9438c51c3,
+        type: 3}
+      propertyPath: _container
+      value: 
+      objectReference: {fileID: 1662671024}
+    - target: {fileID: 4777850487040548187, guid: 4a213fd8d6449d74495d19b9438c51c3,
+        type: 3}
+      propertyPath: _capacity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4777850487040548187, guid: 4a213fd8d6449d74495d19b9438c51c3,
+        type: 3}
+      propertyPath: _pool.Array.data[0]
+      value: 
+      objectReference: {fileID: 1738572178411974440, guid: c1b8f173da4bd3f41939d42b5db7465c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a213fd8d6449d74495d19b9438c51c3, type: 3}

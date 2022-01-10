@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class Spawner : Pool
 {
     [SerializeField] private float _minDelay;
     [SerializeField] private float _maxDelay;
@@ -11,9 +11,10 @@ public class Spawner : MonoBehaviour
     private float _delay;
     private float _currentTime;
 
-    private void OnEnable()
+    private void Start()
     {
         _delay = Random.Range(_minDelay, _maxDelay);
+        Initialize(_template);
     }
 
     private void Update()
@@ -22,14 +23,18 @@ public class Spawner : MonoBehaviour
 
         if (_currentTime >= _delay)
         {
-            Spawn();
-            _currentTime = 0;
-            _delay = Random.Range(_minDelay, _maxDelay);
+            if (TryGetObject(out GameObject obj))
+            {
+                Spawn(obj);
+                _currentTime = 0;
+                _delay = Random.Range(_minDelay, _maxDelay);
+            }
         }
     }
 
-    private void Spawn()
+    private void Spawn(GameObject obj)
     {
-        Instantiate(_template, transform);
+        obj.SetActive(true);
+        obj.transform.position = transform.position;
     }
 }
