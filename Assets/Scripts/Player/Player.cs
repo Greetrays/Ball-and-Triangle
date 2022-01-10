@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     private int _currentHealth;
 
     public event UnityAction Died;
+    public event UnityAction ChangedHealth;
+
+    public int CurrentHealth => _currentHealth;
 
     private void OnValidate()
     {
@@ -25,6 +28,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _currentHealth = _maxHealth;
+        ChangedHealth?.Invoke();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -61,6 +65,7 @@ public class Player : MonoBehaviour
     private void ChangeHealth(int health)
     {
         _currentHealth += health;
+        ChangedHealth?.Invoke();
     }
 
     private void Die()

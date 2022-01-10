@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
@@ -9,6 +10,7 @@ public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private float _powerJump;
+    [SerializeField] private UnityEvent _jumped;
 
     private bool _isGround;
     private Rigidbody2D _rigidbody2D;
@@ -46,6 +48,7 @@ public class PlayerMover : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out Ground ground))
         {
             _isGround = true;
+            _jumped?.Invoke();
         }
     }
 }

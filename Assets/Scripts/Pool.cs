@@ -8,12 +8,7 @@ public class Pool : MonoBehaviour
     [SerializeField] private Transform _container;
     [SerializeField] private int _capacity;
 
-    private List<GameObject> _pool;
-
-    private void Start()
-    {
-        _pool = new List<GameObject>();
-    }
+    private List<GameObject> _pool = new List<GameObject>();
 
     protected void Initialize(GameObject tamplate) 
     {
