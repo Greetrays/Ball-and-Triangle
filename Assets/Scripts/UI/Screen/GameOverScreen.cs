@@ -11,7 +11,7 @@ public class GameOverScreen : Screen
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _backToMenuButton;
     [SerializeField] private GameplayScreen _gamePlayScreen;
-    [SerializeField] private Player _player;
+    [SerializeField] private PlayerHealth _player;
 
     private AudioSource _audioSource;
 

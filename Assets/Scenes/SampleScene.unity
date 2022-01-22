@@ -1964,7 +1964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84725cc788abb240a18794e5da9ede1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1125092483}
+  _player: {fileID: 1952216635}
   _menuScreen: {fileID: 217312673}
   _pauseScreen: {fileID: 1821512720}
   _gameOverScreen: {fileID: 2034293145}
@@ -2648,7 +2648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5ca0528d8c36d41ab1ebad8b2f287d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1125092483}
+  _player: {fileID: 1952216635}
   _healthText: {fileID: 190219035}
 --- !u!1 &1070235083
 GameObject:
@@ -2902,18 +2902,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104026689}
   m_CullTransparentMesh: 0
---- !u!114 &1125092483 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 627837202941159682, guid: 968ed93d8370e0c47a2425918fc07b66,
-    type: 3}
-  m_PrefabInstance: {fileID: 627837203998483841}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1952216628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1962c1cb59bc7f84896e5a024565a761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &1125092484 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 627837202941159685, guid: 968ed93d8370e0c47a2425918fc07b66,
@@ -4153,6 +4141,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b767a87793e8644b233b43900dba78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1952216635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952216628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47bc97b1cdaf0f24bb1c887c0d890aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 3
 --- !u!1 &2034293138
 GameObject:
   m_ObjectHideFlags: 0
@@ -4356,7 +4357,7 @@ MonoBehaviour:
   _restartButton: {fileID: 25840023}
   _backToMenuButton: {fileID: 1190350358}
   _gamePlayScreen: {fileID: 373041534}
-  _player: {fileID: 1125092483}
+  _player: {fileID: 1952216635}
 --- !u!1 &2084568977
 GameObject:
   m_ObjectHideFlags: 0
@@ -4547,7 +4548,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a4966be2e14e03b43b34f3b2de14a5b5, type: 2}
   m_sharedMaterial: {fileID: -2519742877741617144, guid: a4966be2e14e03b43b34f3b2de14a5b5,

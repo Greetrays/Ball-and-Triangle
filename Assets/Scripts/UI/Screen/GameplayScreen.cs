@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class GameplayScreen : Screen
 {
-    [SerializeField] private Player _player;
+    [SerializeField] private PlayerHealth _player;
     [SerializeField] private MenuScreen _menuScreen;
     [SerializeField] private PauseScreen _pauseScreen;
     [SerializeField] private GameOverScreen _gameOverScreen;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private Player _player;
+    [SerializeField] private PlayerHealth _player;
     [SerializeField] TMP_Text _healthText;
 
     private void Start()
@@ -15,12 +15,12 @@ public class HealthBar : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.ChangedHealth += OnChangedHealth;
+        _player.ChangingHealth += OnChangedHealth;
     }
 
     private void OnDisable()
     {
-        _player.ChangedHealth -= OnChangedHealth;
+        _player.ChangingHealth -= OnChangedHealth;
     }
 
     private void OnChangedHealth()

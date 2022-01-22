@@ -4,80 +4,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(PlayerScore))]
+[RequireComponent(typeof(PlayerHealth))]
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int _maxHealth;
     [SerializeField] private UnityEvent _hit;
     [SerializeField] private UnityEvent _usedHeart;
-
-    private int _currentHealth;
-
-    public event UnityAction Died;
-    public event UnityAction ChangedHealth;
-
-    public int CurrentHealth => _currentHealth;
-
-    private void OnValidate()
-    {
-        if (_maxHealth == 0)
-        {
-            _maxHealth = 3;
-        }
-    }
-
-    private void Start()
-    {
-        _currentHealth = _maxHealth;
-        ChangedHealth?.Invoke();
-    }
+    
+    private PlayerHealth _playerHealth;
+    
+    public event UnityAction<int> ChangedHealth;
+    public event UnityAction<int> ChangedScore;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Enemy enemy))
         {
-            ChangeHealth(enemy.Damage * -1);
-
-            if (_currentHealth <= 0)
-            {
-                Die();
-                return;
-            }
-
+            ChangedHealth?.Invoke(enemy.Damage * -1);
             _hit?.Invoke();
         }
 
         if (collision.TryGetComponent(out Heart heart))
         {
-            if (_currentHealth < _maxHealth)
+            if (_playerHealth.CurrentHealth < _playerHealth.MaxHealth)
             {
-                ChangeHealth(heart.Count);
+                ChangedHealth?.Invoke(heart.Count);
             }
-
+            
             _usedHeart?.Invoke();
         }
 
-        if (collision.TryGetComponent(out Money money))
+        if (collision.TryGetComponent(out ScoreTrigger scoreTrigger))
         {
-
+            ChangedScore?.Invoke(scoreTrigger.Reward);
         }
-    }
-
-    private void ChangeHealth(int health)
-    {
-        _currentHealth += health;
-        ChangedHealth?.Invoke();
-    }
-
-    private void Die()
-    {
-        Destroy(gameObject);
-        Died?.Invoke();
     }
 
     public void Reset()
     {
-        _currentHealth = _maxHealth;
+        
+
     }
 }
