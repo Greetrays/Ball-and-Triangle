@@ -8,6 +8,11 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] TMP_Text _healthText;
 
+    private void Start()
+    {
+        _healthText.text = _player.CurrentHealth.ToString();
+    }
+
     private void OnEnable()
     {
         _player.ChangedHealth += OnChangedHealth;
