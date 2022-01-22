@@ -36,5 +36,6 @@ public class Spawner : Pool
     {
         obj.SetActive(true);
         obj.transform.position = transform.position;
+        DisableObjectAbroadScreen();
     }
 }
