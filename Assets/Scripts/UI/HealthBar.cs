@@ -10,7 +10,7 @@ public class HealthBar : MonoBehaviour
 
     private void Start()
     {
-        _healthText.text = _player.CurrentHealth.ToString();
+        _healthText.text = _player.MaxHealth.ToString();
     }
 
     private void OnEnable()

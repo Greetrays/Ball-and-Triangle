@@ -27,6 +27,7 @@ public class GameplayScreen : Screen
         _pauseButton.onClick.AddListener(Pause);
         _menuScreen.Started += Open;
         _pauseScreen.ClickContinueButton += Open;
+        _pauseScreen.ClickRestartButton += Open;
         _gameOverScreen.ClickRestartButton += Open;
         _player.Died += Close;
         _audioSource = GetComponent<AudioSource>();
@@ -42,6 +43,7 @@ public class GameplayScreen : Screen
         _pauseButton.onClick.RemoveListener(Pause);
         _menuScreen.Started -= Open;
         _pauseScreen.ClickContinueButton -= Open;
+        _pauseScreen.ClickRestartButton -= Open;
         _gameOverScreen.ClickRestartButton -= Open;
         _player.Died -= Close;
     }
