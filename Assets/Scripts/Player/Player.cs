@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(PlayerScore))]
+
 public class Player : MonoBehaviour
 {
     [SerializeField] private int _maxHealth;
@@ -71,5 +73,11 @@ public class Player : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        Died?.Invoke();
+    }
+
+    public void Reset()
+    {
+        _currentHealth = _maxHealth;
     }
 }

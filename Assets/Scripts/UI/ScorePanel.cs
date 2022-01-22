@@ -5,25 +5,21 @@ using TMPro;
 
 public class ScorePanel : MonoBehaviour
 {
-    [SerializeField] private ScoreCollider _scoreCollider;
+    [SerializeField] private PlayerScore _playerScore;
     [SerializeField] private TMP_Text _scoreText;
-
-    private int _currentScore;
 
     private void OnEnable()
     {
-        _scoreCollider.Counted += OnCounted;
-        _scoreText.text = _currentScore.ToString();
+        _playerScore.Counted += OnCounted;
     }
 
     private void OnDisable()
     {
-        _scoreCollider.Counted -= OnCounted;
+        _playerScore.Counted -= OnCounted;
     }
 
     private void OnCounted(int score)
     {
-        _currentScore += score;
-        _scoreText.text = _currentScore.ToString();
+        _scoreText.text = score.ToString();
     }
 }

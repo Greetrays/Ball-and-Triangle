@@ -11,9 +11,4 @@ public class EnemyMover : MonoBehaviour
     {
         transform.position += Vector3.left * _speed * Time.deltaTime;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        gameObject.SetActive(false);
-    }
 }
