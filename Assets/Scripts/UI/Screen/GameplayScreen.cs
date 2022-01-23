@@ -30,6 +30,7 @@ public class GameplayScreen : Screen
         _pauseScreen.ClickRestartButton += Open;
         _gameOverScreen.ClickRestartButton += Open;
         _player.Died += Close;
+        _pauseScreen.ClickBackToMenuButton += Close;
         _audioSource = GetComponent<AudioSource>();
     }
 
@@ -46,6 +47,7 @@ public class GameplayScreen : Screen
         _pauseScreen.ClickRestartButton -= Open;
         _gameOverScreen.ClickRestartButton -= Open;
         _player.Died -= Close;
+        _pauseScreen.ClickBackToMenuButton += Close;
     }
 
     protected override void Open()

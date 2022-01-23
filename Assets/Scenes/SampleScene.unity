@@ -981,6 +981,7 @@ MonoBehaviour:
   _infoButton: {fileID: 1743643145}
   _pauseScreen: {fileID: 1821512720}
   _gameOverScreen: {fileID: 2034293145}
+  _infoScreen: {fileID: 451915870}
 --- !u!1 &248294715
 GameObject:
   m_ObjectHideFlags: 0

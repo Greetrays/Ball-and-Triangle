@@ -14,6 +14,7 @@ public class MenuScreen : Screen
     [SerializeField] private Button _infoButton;
     [SerializeField] private PauseScreen _pauseScreen;
     [SerializeField] private GameOverScreen _gameOverScreen;
+    [SerializeField] private InfoScreen _infoScreen;
 
     private AudioSource _audioSource;
 
@@ -31,19 +32,23 @@ public class MenuScreen : Screen
 
     private void OnEnable()
     {
+        _infoButton.onClick.AddListener(DisableInteract);
         _startButton.onClick.AddListener(Close);
         _exitButton.onClick.AddListener(ExitGame);
         _pauseScreen.ClickBackToMenuButton += Open;
         _gameOverScreen.ClickBackToMenuButton += Open;
+        _infoScreen.PressedBackToMenu += EnableInteract;
         _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnDisable()
     {
+        _infoButton.onClick.RemoveListener(DisableInteract);
         _startButton.onClick.RemoveListener(Close);
         _exitButton.onClick.RemoveListener(ExitGame);
         _pauseScreen.ClickBackToMenuButton -= Open;
         _gameOverScreen.ClickBackToMenuButton -= Open;
+        _infoScreen.PressedBackToMenu -= EnableInteract;
     }
 
     protected override void Open()
@@ -56,6 +61,16 @@ public class MenuScreen : Screen
     {
         base.Close();
         _audioSource.Stop();
+    }
+
+    private void DisableInteract()
+    {
+        Group.interactable = false;
+    }
+
+    private void EnableInteract()
+    {
+        Group.interactable = true;
     }
 
     private void ExitGame()
