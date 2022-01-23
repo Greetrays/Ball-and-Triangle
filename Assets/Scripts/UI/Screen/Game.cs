@@ -16,7 +16,7 @@ public class Game : MonoBehaviour
     {
         _gameplayScreen.Paused += Stop;
         _playerHealth.Died += Stop;
-        _menuScreen.Started += Play;
+        _menuScreen.Started += Restart;
         _pauseScreen.ClickContinueButton += Play;
         _pauseScreen.ClickRestartButton += Restart;
         _gameOverScreen.ClickRestartButton += Restart;
@@ -26,7 +26,7 @@ public class Game : MonoBehaviour
     {
         _gameplayScreen.Paused -= Stop;
         _playerHealth.Died -= Stop;
-        _menuScreen.Started -= Play;
+        _menuScreen.Started -= Restart;
         _pauseScreen.ClickContinueButton -= Play;
         _pauseScreen.ClickRestartButton -= Restart;
         _gameOverScreen.ClickRestartButton -= Restart;

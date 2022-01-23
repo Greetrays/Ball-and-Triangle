@@ -11,6 +11,7 @@ public class MenuScreen : Screen
     [SerializeField] private Button _startButton;
     [SerializeField] private Button _shopButton;
     [SerializeField] private Button _exitButton;
+    [SerializeField] private Button _infoButton;
     [SerializeField] private PauseScreen _pauseScreen;
     [SerializeField] private GameOverScreen _gameOverScreen;
 
@@ -20,6 +21,12 @@ public class MenuScreen : Screen
     {
         add => _startButton.onClick.AddListener(value);
         remove => _startButton.onClick.RemoveListener(value);
+    }
+
+    public event UnityAction PressedInfo
+    {
+        add => _infoButton.onClick.AddListener(value);
+        remove => _infoButton.onClick.RemoveListener(value);
     }
 
     private void OnEnable()
