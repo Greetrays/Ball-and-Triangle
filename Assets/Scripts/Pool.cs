@@ -11,7 +11,7 @@ public class Pool : MonoBehaviour
 
     private List<GameObject> _pool = new List<GameObject>();
 
-    public void ResetPool()
+    public void Restart()
     {
         foreach (var item in _pool)
         {

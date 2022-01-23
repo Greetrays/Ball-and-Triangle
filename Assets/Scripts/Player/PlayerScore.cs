@@ -16,16 +16,19 @@ public class PlayerScore : MonoBehaviour
     {
         _player = GetComponent<Player>();
         _player.ChangedScore += AddScore;
+        _player.Restarted += Restart;
     }
 
     private void OnDisable()
     {
         _player.ChangedScore -= AddScore;
+        _player.Restarted -= Restart;
     }
 
-    public void ResetScore()
+    private void Restart()
     {
         _score = 0;
+        Counted?.Invoke(_score);
     }
 
     private void AddScore(int score)

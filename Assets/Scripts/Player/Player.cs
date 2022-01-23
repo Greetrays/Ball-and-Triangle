@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     
     public event UnityAction<int> ChangedHealth;
     public event UnityAction<int> ChangedScore;
+    public event UnityAction Restarted;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -40,9 +41,8 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Reset()
+    public void Restart()
     {
-        
-
+        Restarted?.Invoke();
     }
 }

@@ -9,16 +9,45 @@ public class Game : MonoBehaviour
     [SerializeField] private GameOverScreen _gameOverScreen;
     [SerializeField] private MenuScreen _menuScreen;
     [SerializeField] private Player _player;
+    [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private Spawner _spawner;
 
     private void OnEnable()
     {
-        _pauseScreen.ClickContinueButton += Stop;
+        _gameplayScreen.Paused += Stop;
+        _playerHealth.Died += Stop;
+        _menuScreen.Started += Play;
+        _pauseScreen.ClickContinueButton += Play;
+        _pauseScreen.ClickRestartButton += Restart;
+        _gameOverScreen.ClickRestartButton += Restart;
+    }
+
+    private void OnDisable()
+    {
+        _gameplayScreen.Paused -= Stop;
+        _playerHealth.Died -= Stop;
+        _menuScreen.Started -= Play;
+        _pauseScreen.ClickContinueButton -= Play;
+        _pauseScreen.ClickRestartButton -= Restart;
+        _gameOverScreen.ClickRestartButton -= Restart;
+    }
+
+    private void Start()
+    {
+        Restart();
+        Stop();
     }
 
     private void Restart()
     {
+        _player.Restart();
+        _spawner.Restart();
+        Play();
+    }
 
+    private void Play()
+    {
+        Time.timeScale = 1;
     }
 
     private void Stop()

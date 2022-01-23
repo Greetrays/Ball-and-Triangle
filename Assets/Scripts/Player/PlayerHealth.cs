@@ -30,16 +30,24 @@ public class PlayerHealth : MonoBehaviour
     {
         _player = GetComponent<Player>();
         _player.ChangedHealth += ChangeHealth;
+        _player.Restarted += Restart;
     }
 
     private void OnDisable()
     {
         _player.ChangedHealth -= ChangeHealth;
+        _player.Restarted -= Restart;
     }
 
     private void Start()
     {
         _currentHealth = _maxHealth;
+    }
+
+    private void Restart()
+    {
+        _currentHealth = _maxHealth;
+        ChangingHealth?.Invoke();
     }
 
     private void ChangeHealth(int health)
@@ -54,14 +62,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private void Die()
-    {
-        Destroy(gameObject);
+    {       
         Died?.Invoke();
-    }
-
-    public void Reset()
-    {
-        _currentHealth = _maxHealth;
-
     }
 }
