@@ -25,6 +25,7 @@ public class MenuScreen : Screen
     private void OnEnable()
     {
         _startButton.onClick.AddListener(Close);
+        _exitButton.onClick.AddListener(ExitGame);
         _pauseScreen.ClickBackToMenuButton += Open;
         _gameOverScreen.ClickBackToMenuButton += Open;
         _audioSource = GetComponent<AudioSource>();
@@ -33,6 +34,7 @@ public class MenuScreen : Screen
     private void OnDisable()
     {
         _startButton.onClick.RemoveListener(Close);
+        _exitButton.onClick.RemoveListener(ExitGame);
         _pauseScreen.ClickBackToMenuButton -= Open;
         _gameOverScreen.ClickBackToMenuButton -= Open;
     }
@@ -47,5 +49,10 @@ public class MenuScreen : Screen
     {
         base.Close();
         _audioSource.Stop();
+    }
+
+    private void ExitGame()
+    {
+        Application.Quit();
     }
 }
