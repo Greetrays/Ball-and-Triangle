@@ -20,7 +20,7 @@ public class Spawner : Pool
     private void Update()
     {
         _currentTime += Time.deltaTime;
-
+        
         if (_currentTime >= _delay)
         {
             if (TryGetObject(out GameObject obj))
@@ -29,7 +29,7 @@ public class Spawner : Pool
                 _currentTime = 0;
                 _delay = Random.Range(_minDelay, _maxDelay);
             }
-        }
+        }    
     }
 
     private void Spawn(GameObject obj)

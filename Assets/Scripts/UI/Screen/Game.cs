@@ -10,6 +10,7 @@ public class Game : MonoBehaviour
     [SerializeField] private MenuScreen _menuScreen;
     [SerializeField] private Player _player;
     [SerializeField] private PlayerHealth _playerHealth;
+    [SerializeField] private PlayerMover _playerMover;
     [SerializeField] private Spawner _spawner;
 
     private void OnEnable()
@@ -47,7 +48,7 @@ public class Game : MonoBehaviour
 
     private void Play()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1.0f;
     }
 
     private void Stop()

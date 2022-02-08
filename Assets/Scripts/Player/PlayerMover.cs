@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 
 public class PlayerMover : MonoBehaviour
 {
@@ -14,11 +15,13 @@ public class PlayerMover : MonoBehaviour
 
     private bool _isGround;
     private Rigidbody2D _rigidbody2D;
+    private Animator _animator;
 
     private void Start()
     {
         _isGround = true;
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -27,6 +30,7 @@ public class PlayerMover : MonoBehaviour
         {
             TryJump();
         }
+
     }
 
     private void TryJump()

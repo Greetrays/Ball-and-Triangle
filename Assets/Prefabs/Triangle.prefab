@@ -181,13 +181,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.01, y: 1.25}
-      - {x: -0.04, y: 1.24}
-      - {x: -1.25, y: -1.2099999}
+    - - {x: 0, y: 1.25}
+      - {x: 1.1, y: -1.25}
       - {x: -1.25, y: -1.25}
-      - {x: 1.25, y: -1.25}
-      - {x: 1.25, y: -1.2099999}
-      - {x: 0.03, y: 1.25}
 --- !u!114 &1738572178411974422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,3 +210,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 6
+  _spawner: {fileID: 4777850487040548187, guid: 4a213fd8d6449d74495d19b9438c51c3,
+    type: 3}
