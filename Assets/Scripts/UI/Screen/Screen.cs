@@ -48,8 +48,9 @@ public abstract class Screen : MonoBehaviour
 
         while (elepsedTime < timeChanged)
         {
-            Group.alpha = Mathf.MoveTowards(Group.alpha, targetValue, elepsedTime/timeChanged);
+            //Group.alpha = Mathf.MoveTowards(Group.alpha, targetValue, elepsedTime/timeChanged);
             elepsedTime += Time.deltaTime;
+            Group.alpha = targetValue;
             
             yield return null;
         }
