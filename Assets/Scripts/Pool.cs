@@ -9,11 +9,11 @@ public class Pool : MonoBehaviour
     [SerializeField] private int _capacity;
     [SerializeField] private Camera _camera;
 
-    private List<GameObject> PoolObj = new List<GameObject>();
+    private List<GameObject> _poolObj = new List<GameObject>();
 
     public void Restart()
     {
-        foreach (var item in PoolObj)
+        foreach (var item in _poolObj)
         {
             item.SetActive(false);
         }
@@ -25,13 +25,13 @@ public class Pool : MonoBehaviour
         {
             var spawnedObj = Instantiate(tamplate, _container);
             spawnedObj.SetActive(false);
-            PoolObj.Add(spawnedObj);
+            _poolObj.Add(spawnedObj);
         }
     }
 
     protected bool TryGetObject(out GameObject result)
     {
-        result = PoolObj.First(obj => obj.activeSelf == false);
+        result = _poolObj.First(obj => obj.activeSelf == false);
 
         return result != null;
     }
@@ -40,7 +40,7 @@ public class Pool : MonoBehaviour
     {
         Vector2 _disablePoint = _camera.ViewportToWorldPoint(new Vector2(0, 0));
 
-        foreach (var item in PoolObj)
+        foreach (var item in _poolObj)
         {
             if (item.transform.position.x <= _disablePoint.x)
             {
